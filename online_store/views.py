@@ -4,8 +4,12 @@ from django.http import HttpResponse
 def index(request):
 	##return HttpResponse('Hola Mundo!')
 	return render(request,'index.html',{
-		'message0': 'Nuevo mensaje (de contexto) desde la vista',
-		'message1': 10 + 20,
-		'message2': [1,2,3],
-		'message3': True,
+		'message': 'Listado de productos',
+		'title'  : 'Productos',
+		'products'  : [
+			{'title': 'Playera', 'price': '5', 'stock': True},
+			{'title': 'Camisa', 'price': '7', 'stock': True},
+			{'title': 'Mochila', 'price': '20', 'stock': False},
+			{'title': 'Laptop', 'price': '500', 'stock': True},
+		]
 	})

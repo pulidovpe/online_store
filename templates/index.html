@@ -7,15 +7,32 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="jumbotron">
-				<h1 class="display-4">Hola mundo!</h1>
-				<p class="lead">Este es un párrafo de pruebas. Este es un párrafo de pruebas. Este es un párrafo de pruebas. Este es un párrafo de pruebas.</p>
-				<hr class="my-4">
-				<p>{{ message0 }}</p>
-				<p>{{ message1 }}</p>
-				<p>{{ message2 }}</p>
-				<p>{{ message3 }}</p>
-				<a class="btn btn-primary btn-lg" href="#" role="button">Botón</a>
+			<div class="col">
+				<h1 class="display-4">{{ message }}</h1>
+				<ul>
+				<!-- Comentario -->
+				{# Comentario de Django #}
+				
+				{% for product in products %}
+
+					<li class="list-group-item">
+						{{ product.title }}
+
+						{% if product.stock %}
+						<span class="text-success">
+							Disponible
+						</span>
+						{% else %}
+						<span class="text-danger">
+							No disponible
+						</span>
+						{% endif %}
+
+					</li>
+
+				{% endfor %}
+
+				</ul>
 			</div>
 		</div>
 
