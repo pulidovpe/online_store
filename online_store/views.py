@@ -13,3 +13,8 @@ def index(request):
 			{'title': 'Laptop', 'price': '500', 'stock': True},
 		]
 	})
+
+def login(request):
+	return render(request, 'users/login.html', {
+		#
+	})
