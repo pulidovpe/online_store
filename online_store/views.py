@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
 
+from .forms import RegisterForm
+
 def index(request):
 	##return HttpResponse('Hola Mundo!')
 	return render(request,'index.html',{
@@ -42,3 +44,9 @@ def logout_view(request):
 	messages.success(request, 'Sesión cerrada exitosamente')
 	return redirect('login')
 
+def register(request):
+	form = RegisterForm()
+
+	return render(request, 'users/register.html', {
+		'form': form
+	})
